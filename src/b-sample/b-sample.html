@@ -1,0 +1,604 @@
+<link rel="import" href="../elements.html">
+<link rel="import" href="../b-footer/b-footer.html">
+
+<dom-module id="b-sample">
+
+  <template>
+    <style include="iron-flex iron-flex-alignment iron-flex-factors">
+      :host {
+        font-family: 'Lato', sans-serif;
+      }
+      
+      app-toolbar {
+        /* Toolbar is the main header, so give it some color */
+        background-color: #6761CE;
+        color: white;
+        --app-toolbar-font-size: 24px;
+      }
+      
+      app-header {
+        background-color: #6761CE;
+      }
+      
+      .logo {
+        padding-top: 10px;
+      }
+      
+      .logo a,
+      .llogo a {
+        text-decoration: none;
+      }
+      
+      .link {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+      }
+      
+      .link {
+        text-decoration: none;
+        color: #FFF;
+        font-size: 24px;
+        font-weight: lighter;
+      }
+      
+      .tmenu {
+        background-color: #9edee1;
+      }
+      
+      .lmenu {
+        border-top: 1px solid #0D111A;
+      }
+      
+      section {
+        margin-top: -65px;
+        padding-top: 65px;
+      }
+      
+      .sel a {
+        color: #37346D;
+      }
+      
+      .signup {
+        text-align: right;
+        align-self: inherit;
+      }
+      
+      .signup a {
+        text-decoration: none;
+      }
+      
+      .signup paper-button {
+        background-color: white;
+        color: #6761CE;
+        height: 40px;
+        /*padding: 10px 20px;*/
+        font-size: 15px;
+      }
+      
+      .section {
+        margin-top: -65px;
+        padding-top: 65px;
+      }
+      
+      .menu {
+        align-items: center;
+      }
+      
+      .topmenu {
+        width: 400px;
+        font-size: 20px;
+      }
+      
+      #drawer {
+        --app-drawer-content-container: {
+          background-color: #6761CE;
+        }
+      }
+      
+      .lmenu paper-menu {
+        background-color: #6761CE;
+      }
+      
+      .lmenu paper-item {
+        --paper-item-focused: {
+          background: 6761CE;
+          font-weight: bold;
+        }
+        ;
+        --paper-item-focused-before: {
+          opacity: 0;
+        }
+        ;
+      }
+      
+      .llink {
+        text-decoration: none;
+        color: #FFF;
+        border-bottom: 1px solid #4f4aa0;
+      }
+      
+      .llink paper-item {
+        font-size: 24px;
+        font-family: lato;
+        font-weight: 300;
+      }
+      
+      .lsel paper-item {
+        color: #37346D;
+      }
+      
+      #lastBanner {
+        --banner: {
+          height: 850px;
+        }
+      }
+      
+      t-feature.lastFeature {
+        --feature-primary-text: {
+          color: grey;
+          font-family: 'Lato', sans-serif;
+          font-size: 24px;
+        }
+        ;
+      }
+      
+      header {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        /*height: calc(100vh - 64px);*/
+        height: 800px;
+        padding: 0 16px;
+        background-image: url('/images/o_intro_background.jpg');
+        background-size: contain;
+        color: white;
+        text-align: center;
+      }
+      
+      header > h2 {
+        padding-top: 30px;
+        font-size: 36px;
+        font-weight: 300;
+        margin: 0;
+      }
+      
+      header > p {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 5px;
+      }
+      
+      .questions {
+        font-size: 24px;
+        padding: 50px;
+        color: rgba(0, 0, 0, .54);
+      }
+      
+      .questions h2 {
+        margin 0 auto;
+        display: table;
+        font-size: 36px;
+        background: rgb(132, 222, 255);
+        background: linear-gradient(to right, rgba(132, 222, 255, 1) 0%, rgba(141, 134, 247, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 50px;
+      }
+      
+      .questions p {
+        margin: 5px;
+        padding: 0;
+      }
+      
+      .questions {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        text-align: center;
+      }
+      
+      .carousel {
+        background-color: #37346D;
+        padding: 20px;
+      }
+      
+      .div {
+        height: 600px;
+        padding: 0 30px;
+      }
+      
+      .div img {
+        width: 100%;
+      }
+      
+      .div iron-image {
+        width: 100%;
+      }
+      
+      .div div {
+        position: absolute;
+        bottom: 5px;
+        background: grey;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        left: auto;
+        margin-left: 40%;
+      }
+      
+      #about {
+        padding: 20px;
+      }
+      
+      #whybeats {
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 50px;
+        margin-top: 10px;
+      }
+      
+      #whybeats h2 {
+        font-size: 60px;
+        color: #4f4aa0;
+      }
+      
+      .keyfeatures {
+        @apply(--layout-horizontal);
+        @apply(--layout-end-justified);
+        margin: 0 auto;
+      }
+      
+      .keyfeatures > * {
+        @apply(--layout-flex);
+      }
+      
+      .keyfeatures div {
+        text-align: center;
+      }
+      
+      .keyfeatures img {
+        /*max-width: 70%;
+        max-height: 70%;*/
+        height: 100px;
+      }
+      
+      .keyfeatures h3 {
+        font-size: 28px;
+        color: #4f4aa0;
+        text-transform: uppercase;
+        min-height: 40px;
+      }
+      
+      .keyfeatures p {
+        font-size: 20px;
+      }
+      
+      #price {
+        text-align: center;
+        margin-bottom: 100px;
+        line-height: 20px;
+      }
+      
+      #price h2 {
+        font-size: 60px;
+        color: #4f4aa0;
+      }
+      
+      .price {
+        @apply(--layout-horizontal);
+        @apply(--layout-end-justified);
+        margin: 0 auto;
+        width: 80%;
+      }
+      
+      .price > * {
+        @apply(--layout-flex);
+      }
+      
+      .price div {
+        margin: 5px;
+        border: 4px solid #fff;
+        padding: 5px;
+      }
+      
+      .price div.selected {
+        margin: 5px;
+        border: 2px solid #6761ce;
+        padding: 5px;
+      }
+      
+      .price div:hover {
+        margin: 5px;
+        border: 4px solid #6761ce;
+        padding: 5px;
+        cursor: pointer;
+      }
+      
+      .price img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      
+      .price h1 {
+        font-size: 36px;
+        font-weight: 300;
+        color: #4f4aa0;
+      }
+      
+      .price h3 {
+        font-size: 32px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      
+      .price h4 {
+        font-size: 26px;
+        font-weight: 500;
+      }
+      
+      .price p {
+        margin: 2px;
+      }
+      
+      p.deal {
+        padding: 5px 0;
+        color: red;
+        background: linear-gradient(to right, rgba(132, 222, 255, 1) 0%, rgba(141, 134, 247, 1) 100%);
+        border-radius: 15px;
+      }
+      
+      p.tag {
+        position: relative;
+        top: -20px;
+        background-color: blue;
+        left: 25%;
+        border-radius: 10px;
+        color: white;
+        text-transform: uppercase;
+        width: 150px;
+      }
+      /*-----------------------new----------------*/
+      
+      #about {
+        margin-top: 0;
+        background-image: url('/images/o_intro_background.jpg');
+        background-size: contain;
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+        min-height: 700px;
+      }
+      
+      .container {
+        @apply(--layout-horizontal);
+        margin: 0 auto;
+      }
+      
+      .container > * {
+        @apply(--layout-flex);
+      }
+      
+      .container img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      
+      .container h3 {
+        font-size: 32px;
+        font-weight: 300;
+        margin: 24px 0;
+      }
+      
+      .container p {
+        line-height: 1.5;
+      }
+      
+      #idea {
+        padding-top: 40px;
+        margin-top: 0;
+        background-image: url('/images/blub_background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 700px;
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+        padding: 10px;
+      }
+      
+      #idea p {
+        width: 70%;
+      }
+      
+      .info {
+        margin: 20px;
+        padding-top: 100px;
+      }
+      
+      google-map {
+        height: 300px;
+      }
+      
+      .mapText {
+        background: rgba(20, 188, 142, 0.4);
+        color: #1c2440;
+        padding: 40px 100px 60px 100px;
+        font-size: 1.2em;
+        text-align: center;
+      }
+      
+      #map {
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+      }
+      
+      #people {
+        padding-top: 40px;
+        margin-top: 0;
+        background-image: url('/images/o_mix_background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 500px;
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+        padding: 50px;
+      }
+      
+      #product p {
+        text-align: left;
+        padding: 0 10%;
+        opacity: 0.5;
+        font-size: 24px;
+        font-weight: 300;
+      }
+      
+      #aboutus {
+        padding: 50px;
+      }
+
+      #aboutus a{
+        text-decoration:none;
+      }
+      
+      #aboutus p {
+        text-align: left;
+        padding: 10px;
+        opacity: 0.5;
+        font-size: 24px;
+        font-weight: 300;
+      }
+      
+      @media (max-width: 1024px) {
+        .container {
+          @apply(--layout-vertical);
+        }
+        #idea p {
+          padding: 10px;
+          width: 90%;
+        }
+        .mapText {
+          font-size: 0.8em;
+          padding: 40px;
+        }
+        .logoImg {
+          height: 35px;
+        }
+        #about,
+        #idea,
+        #people,
+        #product {
+          font-size: 20px;
+        }
+        .info {
+          padding-top: 10px;
+        }
+        #people {
+          height: 600px;
+        }
+      }
+    </style>
+
+    <app-drawer-layout force-narrow>
+      <app-drawer id="drawer">
+        <app-toolbar class="llogo">
+          <div class="horizontal layout flex">
+            <div>
+              <a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
+            </div>
+          </div>
+        </app-toolbar>
+        <!--side bar menu-->
+        <div class="lmenu">
+          <paper-menu noink selected-class="lsel" selected="{{selected}}">
+            <a href="/index.html#challenges" class="llink" tabindex="-1">
+              <paper-item>Challenges</paper-item>
+            </a>
+            <a href="/index.html#features" class="llink" tabindex="-1">
+              <paper-item>Features</paper-item>
+            </a>
+            <a href="/index.html#price" class="llink" tabindex="-1">
+              <paper-item>Pricing</paper-item>
+            </a>
+            <a href="/story.html" class="llink" tabindex="-1">
+              <paper-item>Story</paper-item>
+            </a>
+          </paper-menu>
+        </div>
+      </app-drawer>
+      <app-header-layout>
+        <app-header fixed class="main-header">
+          <app-toolbar hidden$="{{wideLayout}}">
+            <div class="horizontal layout flex menu">
+              <paper-icon-button class="menu-button1" icon="menu" drawer-toggle></paper-icon-button>
+              <a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
+              <div class="flex-5 signup">
+                <a href="[[signUpUrl]]" target="_blank">
+                  <paper-button id="btnSignup" raised>SIGN UP</paper-button>
+                </a>
+              </div>
+            </div>
+          </app-toolbar>
+          <app-toolbar class="tabs-bar" hidden$="{{!wideLayout}}">
+            <div class="horizontal layout flex">
+              <div class="llogo flex-2">
+                <a href="/index.html"><img src="/images/logo.png" /></a>
+              </div>
+              <div class="flex"></div>
+              <div class="flex-1">
+                <paper-tabs class="topmenu" selected="{{selected}}" no-bar="true" noink="true" flex selected-class="sel">
+                  <paper-tab link>
+                    <a href="/index.html#challenges" class="link" tabindex="-1">Challenges</a>
+                  </paper-tab>
+                  <paper-tab link>
+                    <a href="/index.html#features" class="link" tabindex="-1">Features</a>
+                  </paper-tab>
+                  <paper-tab link>
+                    <a href="/index.html#price" class="link" tabindex="-1">Pricing</a>
+                  </paper-tab>
+                  <paper-tab link>
+                    <a href="/story.html" class="link" tabindex="-1">Story</a>
+                  </paper-tab>
+                </paper-tabs>
+              </div>
+              <div class="flex-1 signup">
+                <a href="[[signUpUrl]]" target="_blank">
+                  <paper-button id="btnSignup" raised>SIGN UP</paper-button>
+                </a>
+              </div>
+            </div>
+          </app-toolbar>
+        </app-header>
+
+
+        <section id="sample">
+          abc
+          <iron-image sizing="contain" src="/images/SampleEmail.jpg" preload></iron-image>
+          <img src="/images/SampleEmail.jpg" />
+        </section>
+
+        <b-footer section-links='[
+    {"name":"COMPANY","items":[{"name":"About","url":"/about.html"},{"name":"Story","url":"/story.html"}]},
+    {"name":"RESOURCES","items":[{"name":"Sample email","url":"/sample.html","newWindow":true}]},
+    {"name":"CONTACT","items":[{"name":"Send message","url":"https://goo.gl/forms/i2ryeDDLGUkDhCFM2","newWindow":true}]}]'
+          copyright-text="&copy; 2016 beats team"></b-footer>
+
+
+      </app-header-layout>
+    </app-drawer-layout>
+    <iron-media-query query="min-width: 640px" query-matches="{{wideLayout}}"></iron-media-query>
+  </template>
+  <script>
+
+    Polymer({
+      is: 'b-sample',
+       properties:{
+        signUpUrl:{
+          type:String,
+          value:"https://goo.gl/forms/i2ryeDDLGUkDhCFM2"
+        },
+      }
+    });
+
+  </script>
+
+</dom-module>

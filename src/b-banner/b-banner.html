@@ -1,0 +1,150 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html" />
+<!--
+`t-feature`
+
+Example:
+          
+          <t-banner>
+            <t-feature 
+              fit-image
+             primary-text="Very Big Primary Text. Very Big Primary Text.Very Big Primary Text."
+             secondary-text="Some What small"
+             title-image="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_284x96dp.png"
+             image-height="50"
+             button-text="Awsome Button"> </t-feature>
+          </t-banner>
+### Styling
+`----banner-content` | A mixin that is applied to the content area.. tweak it to put a background or give it little margin or something | `{}`
+
+@group atom Elements
+@element t-banner
+@demo demo/index.html
+-->
+<dom-module id="b-banner">
+  <template>
+    <style include="iron-flex-alignment"></style>
+    <style include="iron-flex">
+      :host {
+        display: block;
+      }
+      #container {
+        height: 100vh;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      .content {
+        display: inline-block;
+
+        @apply(--banner-content);
+      }
+    </style>
+    <div id="container" class$="layout horizontal [[verticalAlign]] [[_horizontalAlign]]">
+      <div class="content" style$="width:[[contentWidth]]">
+        <content style="width:40%" select="*"></content>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'b-banner',
+
+      properties: {
+
+        //pass the background Color of the container.
+        backgroundColor:{
+          type: String,
+          value: '#fff',
+          observer: '_setBackgroundColor'
+        },
+        
+        //pass the background Image of the container.
+        backgroundImage:{
+          type: String,
+          observer: '_setBackgroundImage'
+        },
+
+
+       // Pass the horizontal alignment of the image possible value are start,end,center
+        horizontalAlign: {
+          type: String,
+          value: 'center',
+        },
+
+       // Pass the vertical alignment of the image possible value are start,end,center
+        verticalAlign: {
+          type: String,
+          value: 'center',
+        },
+
+        // _verticalAlign: {
+        //   type: String,
+        //   computed: '_verticalAlignCompute(verticalAlign)'
+        // },
+
+        _horizontalAlign: {
+          type: String,
+          computed: '_horizontalAlignCompute(horizontalAlign)'
+        },
+
+        contentWidth: {
+          type:String,
+          value:'auto'
+        }
+
+      },
+      _setBackgroundColor: function(color){
+        this.$.container.style.backgroundColor = color;
+      },
+
+      _setBackgroundImage: function(image){
+        if(!image || image.length <= 0){
+          this.$.container.style.backgroundImage = '';
+          return;
+        }
+        this.$.container.style.backgroundImage = 'url(' + image + ')';
+      },
+
+      _horizontalAlignCompute: function(horizontalAlign){
+        var align;
+        switch(horizontalAlign){
+          case 'center':
+            align = 'center-justified';
+            break;
+          case 'start':
+            align = 'start-justified';
+            break;
+          case 'end':
+            align = 'end-justified';
+            break;
+          default: 
+            align = 'center-justified';
+        }
+        return align;
+      }
+
+      // _verticalAlignCompute: function(verticalAlign){
+      //   var align;
+      //   switch(verticalAlign){
+      //     case 'center':
+      //       align = 'center';
+      //       break;
+      //     case 'start':
+      //       align = 'start';
+      //       break;
+      //     case 'end':
+      //       align = 'end';
+      //       break;
+      //     default: 
+      //       align = 'center';
+      //   }
+      //   this._verticalAlign = align;
+      // }
+
+    });
+  </script>
+</dom-module>

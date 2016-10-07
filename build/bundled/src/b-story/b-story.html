@@ -1,0 +1,635 @@
+<html><head><link rel="import" href="../elements.html">
+<link rel="import" href="../b-footer/b-footer.html">
+
+</head><body><dom-module id="b-story">
+
+  <template>
+    <style include="iron-flex iron-flex-alignment iron-flex-factors">
+      :host {
+        font-family: 'Lato', sans-serif;
+      }
+      
+      app-toolbar {
+        /* Toolbar is the main header, so give it some color */
+        background-color: #6761CE;
+        color: white;
+        --app-toolbar-font-size: 24px;
+      }
+      
+      app-header {
+        background-color: #6761CE;
+      }
+      
+      .logo {
+        padding-top: 10px;
+      }
+      
+      .logo a,
+      .llogo a {
+        text-decoration: none;
+      }
+      
+      .link {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+      }
+      
+      .link {
+        text-decoration: none;
+        color: #FFF;
+        font-size: 24px;
+        font-weight: lighter;
+      }
+      
+      .tmenu {
+        background-color: #9edee1;
+      }
+      
+      .lmenu {
+        border-top: 1px solid #0D111A;
+      }
+      
+      section {
+        margin-top: -65px;
+        padding-top: 65px;
+      }
+      
+      .sel a {
+        color: #37346D;
+      }
+      
+      .signup {
+        text-align: right;
+        align-self: inherit;
+      }
+      
+      .signup a {
+        text-decoration: none;
+      }
+      
+      .signup paper-button {
+        background-color: white;
+        color: #6761CE;
+        height: 40px;
+        /*padding: 10px 20px;*/
+        font-size: 15px;
+      }
+      
+      .section {
+        margin-top: -65px;
+        padding-top: 65px;
+      }
+      
+      .menu {
+        align-items: center;
+      }
+      
+      .topmenu {
+        width: 400px;
+        font-size: 20px;
+      }
+      
+      #drawer {
+        --app-drawer-content-container: {
+          background-color: #6761CE;
+        }
+      }
+      
+      .lmenu paper-menu {
+        background-color: #6761CE;
+      }
+      
+      .lmenu paper-item {
+        --paper-item-focused: {
+          background: 6761CE;
+          font-weight: bold;
+        }
+        ;
+        --paper-item-focused-before: {
+          opacity: 0;
+        }
+        ;
+      }
+      
+      .llink {
+        text-decoration: none;
+        color: #FFF;
+        border-bottom: 1px solid #4f4aa0;
+      }
+      
+      .llink paper-item {
+        font-size: 24px;
+        font-family: lato;
+        font-weight: 300;
+      }
+      
+      .lsel paper-item {
+        color: #37346D;
+      }
+      
+      #lastBanner {
+        --banner: {
+          height: 850px;
+        }
+      }
+      
+      t-feature.lastFeature {
+        --feature-primary-text: {
+          color: grey;
+          font-family: 'Lato', sans-serif;
+          font-size: 24px;
+        }
+        ;
+      }
+      
+      header {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        /*height: calc(100vh - 64px);*/
+        height: 800px;
+        padding: 0 16px;
+        background-image: url('/images/o_intro_background.jpg');
+        background-size: contain;
+        color: white;
+        text-align: center;
+      }
+      
+      header > h2 {
+        padding-top: 30px;
+        font-size: 36px;
+        font-weight: 300;
+        margin: 0;
+      }
+      
+      header > p {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 5px;
+      }
+      
+      .questions {
+        font-size: 24px;
+        padding: 50px;
+        color: rgba(0, 0, 0, .54);
+      }
+      
+      .questions h2 {
+        margin 0 auto;
+        display: table;
+        font-size: 36px;
+        background: rgb(132, 222, 255);
+        background: linear-gradient(to right, rgba(132, 222, 255, 1) 0%, rgba(141, 134, 247, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 50px;
+      }
+      
+      .questions p {
+        margin: 5px;
+        padding: 0;
+      }
+      
+      .questions {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        text-align: center;
+      }
+      
+      .carousel {
+        background-color: #37346D;
+        padding: 20px;
+      }
+      
+      .div {
+        height: 600px;
+        padding: 0 30px;
+      }
+      
+      .div img {
+        width: 100%;
+      }
+      
+      .div iron-image {
+        width: 100%;
+      }
+      
+      .div div {
+        position: absolute;
+        bottom: 5px;
+        background: grey;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        left: auto;
+        margin-left: 40%;
+      }
+      
+      #about {
+        padding: 20px;
+      }
+      
+      #whybeats {
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 50px;
+        margin-top: 10px;
+      }
+      
+      #whybeats h2 {
+        font-size: 60px;
+        color: #4f4aa0;
+      }
+      
+      .keyfeatures {
+        @apply(--layout-horizontal);
+        @apply(--layout-end-justified);
+        margin: 0 auto;
+      }
+      
+      .keyfeatures > * {
+        @apply(--layout-flex);
+      }
+      
+      .keyfeatures div {
+        text-align: center;
+      }
+      
+      .keyfeatures img {
+        /*max-width: 70%;
+        max-height: 70%;*/
+        height: 100px;
+      }
+      
+      .keyfeatures h3 {
+        font-size: 28px;
+        color: #4f4aa0;
+        text-transform: uppercase;
+        min-height: 40px;
+      }
+      
+      .keyfeatures p {
+        font-size: 20px;
+      }
+      
+      #price {
+        text-align: center;
+        margin-bottom: 100px;
+        line-height: 20px;
+      }
+      
+      #price h2 {
+        font-size: 60px;
+        color: #4f4aa0;
+      }
+      
+      .price {
+        @apply(--layout-horizontal);
+        @apply(--layout-end-justified);
+        margin: 0 auto;
+        width: 80%;
+      }
+      
+      .price > * {
+        @apply(--layout-flex);
+      }
+      
+      .price div {
+        margin: 5px;
+        border: 4px solid #fff;
+        padding: 5px;
+      }
+      
+      .price div.selected {
+        margin: 5px;
+        border: 2px solid #6761ce;
+        padding: 5px;
+      }
+      
+      .price div:hover {
+        margin: 5px;
+        border: 4px solid #6761ce;
+        padding: 5px;
+        cursor: pointer;
+      }
+      
+      .price img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      
+      .price h1 {
+        font-size: 36px;
+        font-weight: 300;
+        color: #4f4aa0;
+      }
+      
+      .price h3 {
+        font-size: 32px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      
+      .price h4 {
+        font-size: 26px;
+        font-weight: 500;
+      }
+      
+      .price p {
+        margin: 2px;
+      }
+      
+      p.deal {
+        padding: 5px 0;
+        color: red;
+        background: linear-gradient(to right, rgba(132, 222, 255, 1) 0%, rgba(141, 134, 247, 1) 100%);
+        border-radius: 15px;
+      }
+      
+      p.tag {
+        position: relative;
+        top: -20px;
+        background-color: blue;
+        left: 25%;
+        border-radius: 10px;
+        color: white;
+        text-transform: uppercase;
+        width: 150px;
+      }
+      /*-----------------------new----------------*/
+      
+      #about {
+        margin-top: 0;
+        background-image: url('/images/o_intro_background.jpg');
+        background-size: contain;
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+        min-height: 700px;
+      }
+      
+      .container {
+        @apply(--layout-horizontal);
+        margin: 0 auto;
+      }
+      
+      .container > * {
+        @apply(--layout-flex);
+      }
+      
+      .container img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      
+      .container h3 {
+        font-size: 32px;
+        font-weight: 300;
+        margin: 24px 0;
+      }
+      
+      .container p {
+        line-height: 1.5;
+      }
+      
+      #idea {
+        padding-top: 40px;
+        margin-top: 0;
+        background-image: url('/images/blub_background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 700px;
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+        padding: 10px;
+      }
+      
+      #idea p {
+        width: 70%;
+      }
+      
+      .info {
+        margin: 20px;
+        padding-top: 100px;
+      }
+      
+      google-map {
+        height: 300px;
+      }
+      
+      .mapText {
+        background: rgba(20, 188, 142, 0.4);
+        color: #1c2440;
+        padding: 40px 100px 60px 100px;
+        font-size: 1.2em;
+        text-align: center;
+      }
+      
+      #map {
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+      }
+      
+      #people {
+        padding-top: 40px;
+        margin-top: 0;
+        background-image: url('/images/o_mix_background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 500px;
+        color: #9edee1;
+        font-size: 24px;
+        font-weight: 300;
+        padding: 50px;
+      }
+      
+      #product p {
+        text-align: center;
+        padding: 0 10%;
+        opacity: 0.5;
+        font-size: 24px;
+        font-weight: 300;
+      }
+      
+      @media (max-width: 1024px) {
+        .container {
+          @apply(--layout-vertical);
+        }
+        #idea p {
+          padding: 10px;
+          width: 90%;
+        }
+      }
+    </style>
+
+    <app-drawer-layout force-narrow="">
+      <app-drawer id="drawer">
+        <app-toolbar class="llogo">
+          <div class="horizontal layout flex">
+            <div>
+              <a href="/home.html"><img src="/images/logo.png"></a>
+            </div>
+          </div>
+        </app-toolbar>
+        <!--side bar menu-->
+        <div class="lmenu">
+          <paper-menu noink="" selected-class="lsel" selected="{{selected}}">
+            <a href="/home.html#challenges" class="llink" tabindex="-1">
+              <paper-item>Challenges</paper-item>
+            </a>
+            <a href="/home.html#features" class="llink" tabindex="-1">
+              <paper-item>Features</paper-item>
+            </a>
+            <a href="/home.html#price" class="llink" tabindex="-1">
+              <paper-item>Pricing</paper-item>
+            </a>
+            <a href="/about.html" class="llink" tabindex="-1">
+              <paper-item>Story</paper-item>
+            </a>
+          </paper-menu>
+        </div>
+      </app-drawer>
+      <app-header-layout>
+        <app-header fixed="" class="main-header">
+          <app-toolbar hidden$="{{wideLayout}}">
+            <div class="horizontal layout flex menu">
+              <paper-icon-button class="menu-button1" icon="menu" drawer-toggle=""></paper-icon-button>
+              <a href="/home.html"><img src="/images/logo.png"></a>
+            </div>
+            <div class="flex-5 signup">
+              <a href="[[signUpUrl]]" target="_blank">
+                <paper-button id="btnSignup" raised="">SIGN UP</paper-button>
+              </a>
+            </div>
+          </app-toolbar>
+          <app-toolbar class="tabs-bar" hidden$="{{!wideLayout}}">
+            <div class="horizontal layout flex">
+              <div class="llogo flex-2">
+                <a href="/home.html"><img src="/images/logo.png"></a>
+              </div>
+              <div class="flex"></div>
+              <div class="flex-1">
+                <paper-tabs class="topmenu" selected="{{selected}}" no-bar="true" noink="true" flex="" selected-class="sel">
+                  <paper-tab link="">
+                    <a href="/home.html#challenges" class="link" tabindex="-1">Challenges</a>
+                  </paper-tab>
+                  <paper-tab link="">
+                    <a href="/home.html#features" class="link" tabindex="-1">Features</a>
+                  </paper-tab>
+                  <paper-tab link="">
+                    <a href="/home.html#price" class="link" tabindex="-1">Pricing</a>
+                  </paper-tab>
+                  <paper-tab link="">
+                    <a href="#" class="link" tabindex="-1">Story</a>
+                  </paper-tab>
+                </paper-tabs>
+              </div>
+              <div class="flex-1 signup">
+                <a href="[[signUpUrl]]" target="_blank">
+                  <paper-button id="btnSignup" raised="">SIGN UP</paper-button>
+                </a>
+              </div>
+            </div>
+          </app-toolbar>
+        </app-header>
+
+        <section id="about">
+          <div class="container">
+            <div>
+              <img src="/images/intro_graphic.png">
+            </div>
+            <div>
+              <p>A destination management company (DMC) is a professional services company possessing extensive local knowledge,
+                expertise and resources, specialising in the design and implementation of events, activities, tours, transportation
+                and program logistics. A DMC’s work includes liaising with travel agents to build and confirm travel itineraries,
+                working with hotel and activity providers to secure contracted rates, running on-ground logistics and last-mile
+                operational fulfilment for individual and group tours.</p>
+              <p>DMCs may specialise in one or more locations and may have staff ranging from a few tens to hundreds of people,
+                in roles like tour creation and bookings, reservations, contracting, ground services, and accounts.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="idea">
+          <div class="container">
+            <div class="info">
+              <p>We had some thoughts around leveraging technology to solve operational challenges for DMCs. We wanted to rapidly
+                crystallise and validate these ideas, find out whether a software solution was desirable, and arrive at a
+                prototype that could be developed further by our product team.</p>
+              <p>We started by conducting a couple of unstructured interviews with subject matter experts to understand the
+                domain, key stakeholders and workflows. Based on our understanding, and inspired by lean UX approaches, we
+                formed an initial set of assumptions and hypotheses, which we then prioritised and started validating by
+                engaging with DMCs.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="map">
+          <div>
+            <div>
+              <google-map disable-zoom="true" fit-to-markers="" api-key="AIzaSyBO0mGEsECssz9TLXWdApFWdGnQrr7unFg">
+                <google-map-marker latitude="18.5204" longitude="73.8567" title=" Pune "></google-map-marker>
+                <google-map-marker latitude="19.076 " longitude="72.8777 " title=" Mumbai "></google-map-marker>
+                <google-map-marker latitude="26.2041 " longitude="28.0473 " "="" title=" Africa "></google-map-marker>
+                <google-map-marker latitude="25.2048 " longitude="55.2708 " title=" Dubai "></google-map-marker>
+                <google-map-marker latitude="28.7041 " longitude="77.1025 " title=" Delhi "></google-map-marker>
+                <google-map-marker latitude="3.2028 " longitude="73.2207 " title=" Maldives "></google-map-marker>
+                <google-map-marker latitude="11.7401 " longitude="92.6586 " title=" Andaman and Nicobar Islands "></google-map-marker>
+                <google-map-marker latitude="7.8731 " longitude="80.7718 " title=" Sri Lanka "></google-map-marker>
+                <google-map-marker latitude="39.0742 " longitude="21.8243 " title=" Greece "></google-map-marker>
+                <google-map-marker latitude="1.3521 " longitude="103.8198 " title=" Singapore "></google-map-marker>
+                <google-map-marker latitude="23.0225 " longitude="72.5714 " title=" Ahmedabad "></google-map-marker>
+                <google-map-marker latitude="26.9124 " longitude="75.7873 " title=" Jaipur "></google-map-marker>
+                <google-map-marker latitude="27.5142 " longitude="90.4336 " title=" Bhutan "></google-map-marker>
+                <google-map-marker latitude="26.1445 " longitude="91.7362 " title=" Guwahati "></google-map-marker>
+                <google-map-marker latitude="27.3389 " longitude="88.6065 " title=" Gangtok "></google-map-marker>
+                <google-map-marker latitude="31.1048 " longitude="77.1734 " title=" Himachal Pradesh "></google-map-marker>
+                <google-map-marker latitude="17.385 " longitude="78.4867 " title=" Hyderabad "></google-map-marker>
+                <google-map-marker latitude="22.5726 " longitude="88.3639 " title=" Kolkata "></google-map-marker>
+                <google-map-marker latitude="34.1526 " longitude="77.5771 " title=" Leh "></google-map-marker>
+                <google-map-marker latitude="22.9734 " longitude="78.6569 " title=" Madhya Pradesh "></google-map-marker>
+
+              </google-map>
+            </div>
+            <div class="mapText ">
+              We conducted semi-structured interviews (telephonic and contextual) with DMCs of different sizes, geographies, and at different
+              stages of organisational maturity. We requested for their help in working with us on a regular basis to refine
+              ideas, share artefacts like sample contracts or emails, and basically help co-design the prototype till it
+              reached a level where at least 10 DMCs could agree that it would be useful and worth buying. (We eventually
+              covered x DMCs over 8 weeks)
+            </div>
+          </div>
+        </section>
+
+        <section id="people ">
+          <div class="container ">
+            <div>
+              <img src="/images/user_graphic.png ">
+              <p>During this engagement with DMCs, as part of the discovery and design process at our end, we identified and
+                charted the types of stakeholders and stages of operation at DMC organisations. We then decided to focus
+                on specific stakeholders and stages. We ran multiple design sprints to arrive at these decisions.</p>
+              <p>Parallely we utilised tools like the SVPG Opportunity Assessment and the Business Model Canvas. We also carried
+                out a basic competitor analysis to gauge what existing product offerings support and lack.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="product ">
+          <img width="100% " src="/images/mockup_background.jpg ">
+          <p>This is the resulting prototype and the feature list we arrived at. Finally, based on several structured interviews
+            with DMCs, we could conclude that we had arrived at problem-solution fit.</p>
+        </section>
+                          <b-footer section-links="[
+             {&quot;name&quot;:&quot;COMPANY&quot;,&quot;items&quot;:[{&quot;name&quot;:&quot;About&quot;,&quot;url&quot;:&quot;/home.html&quot;},{&quot;name&quot;:&quot;Story&quot;,&quot;url&quot;:&quot;/story.html&quot;}]},
+             {&quot;name&quot;:&quot;PRODUCT&quot;,&quot;items&quot;:[{&quot;name&quot;:&quot;Features&quot;,&quot;url&quot;:&quot;#&quot;}]},
+             {&quot;name&quot;:&quot;RESOURCES&quot;,&quot;items&quot;:[{&quot;name&quot;:&quot;Sample email&quot;,&quot;url&quot;:&quot;/images/SampleEmail.jpg&quot;,&quot;newWindow&quot;:true}]},
+             {&quot;name&quot;:&quot;CONTACT&quot;,&quot;items&quot;:[{&quot;name&quot;:&quot;Send message&quot;,&quot;url&quot;:&quot;https://goo.gl/forms/jQfQEPJEtHAZS13v1&quot;,&quot;newWindow&quot;:true}]}]" copyright-text="© 2016 beats team"></b-footer>
+
+      </app-header-layout>
+    </app-drawer-layout>
+    <iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
+  </template>
+  <script>Polymer({is:"b-story",properties:{signUpUrl:{type:String,value:"https://goo.gl/forms/jQfQEPJEtHAZS13v1 "}}});</script>
+
+</dom-module></body></html>

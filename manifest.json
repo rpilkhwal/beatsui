@@ -1,0 +1,6 @@
+{
+  "name": "BeatsUI",
+  "short_name": "beats",
+  "start_url": "/",
+  "display": "standalone"
+}

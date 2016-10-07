@@ -1,0 +1,21 @@
+{
+  "name": "BeatsUI",
+  "private": true,
+  "scripts": {},
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "beats": {
+    "backendDir": "",
+    "distDir": "dst"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-print": "^2.0.1",
+    "gulp-vulcanize": "^6.1.0",
+    "polybuild": "^1.1.0"
+  },
+  "dependencies": {}
+}
