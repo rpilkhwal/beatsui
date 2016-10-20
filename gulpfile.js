@@ -32,10 +32,10 @@ gulp.task('image:optimize', function () {
         .pipe(gulp.dest(BEATS.distDir + '/images/'));
 })
 
-gulp.task('build',['image:optimize'], function () {
-      return gulp.src(['index.html','story.html','about.html','sample.html'])
-      .pipe(polybuild({maximumCrush: true, suffix: ''}))
-      .pipe(gulp.dest(BEATS.distDir));
+gulp.task('build', ['clean', 'image:optimize'], function () {
+    return gulp.src(['index.html', 'story.html', 'about.html', 'sample.html'])
+        .pipe(polybuild({ maximumCrush: true, suffix: '' }))
+        .pipe(gulp.dest(BEATS.distDir));
 })
 
 gulp.task('default', ['default']);

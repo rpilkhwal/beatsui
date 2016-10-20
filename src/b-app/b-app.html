@@ -3,674 +3,676 @@
 
 <dom-module id="b-app">
 
-  <template>
-    <style include="iron-flex iron-flex-alignment iron-flex-factors">
-      :host {
-        font-family: lato;
-      }
-      
-      app-toolbar {
-        /* Toolbar is the main header, so give it some color */
-        background-color: #6761CE;
-        color: white;
-        --app-toolbar-font-size: 24px;
-      }
-      
-      app-header {
-        background-color: #6761CE;
-      }
-      
-      .logo {
-        padding-top: 10px;
-      }
-      
-      .logo a,
-      .llogo a {
-        text-decoration: none;
-      }
-      
-      .link {
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
-      }
-      
-      .link {
-        text-decoration: none;
-        color: #FFF;
-        font-size: 24px;
-        font-weight: lighter;
-      }
-      
-      .tmenu {
-        background-color: #9edee1;
-      }
-      
-      .lmenu {
-        border-top: 1px solid #0D111A;
-      }
-      
-      section {
-        margin-top: -65px;
-        padding-top: 65px;
-      }
-      
-      .sel a {
-        color: #37346D;
-      }
-      
-      .signup {
-        text-align: right;
-        align-self: inherit;
-      }
-      
-      .signup a {
-        text-decoration: none;
-      }
-      
-      .signup paper-button {
-        background-color: white;
-        color: #6761CE;
-        height: 40px;
-        /*padding: 10px 20px;*/
-        font-size: 15px;
-      }
-      
-      .section {
-        margin-top: -65px;
-        padding-top: 65px;
-      }
-      
-      .menu {
-        align-items: center;
-      }
-      
-      .topmenu {
-        width: 400px;
-        font-size: 20px;
-      }
-      
-      #drawer {
-        --app-drawer-content-container: {
-          background-color: #6761CE;
-        }
-      }
-      
-      .lmenu paper-menu {
-        background-color: #6761CE;
-      }
-      
-      .lmenu paper-item {
-        --paper-item-focused: {
-          background: #6761CE;
-          font-weight: bold;
-        }
-        ;
-        --paper-item-focused-before: {
-          opacity: 0;
-        }
-        ;
-      }
-      
-      .llink {
-        text-decoration: none;
-        color: #FFF;
-        border-bottom: 1px solid #4f4aa0;
-      }
-      
-      .llink paper-item {
-        font-size: 24px;
-        font-family: lato;
-        font-weight: 300;
-      }
-      
-      .lsel paper-item {
-        color: #37346D;
-      }
-      
-      #lastBanner {
-        --banner: {
-          height: 850px;
-        }
-      }
-      
-      t-feature.lastFeature {
-        --feature-primary-text: {
-          color: grey;
-          font-family: 'Lato', sans-serif;
-          font-size: 24px;
-        }
-        ;
-      }
-      
-      header {
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
-        /*height: calc(100vh - 64px);*/
-        /*height: 800px;*/
-        padding: 0 16px;
-        background-image: url('/images/mainbg.png');
-        color: white;
-        text-align: center;
-      }
-      
-      header > h2 {
-        padding-top: 30px;
-        font-size: 36px;
-        margin: 0;
-      }
-      
-      header > p {
-        font-size: 24px;
-        margin: 5px;
-      }
-      
-      .questions {
-        font-size: 24px;
-        padding: 50px;
-        color: rgba(0, 0, 0, .54);
-      }
-      
-      .questions h2 {
-        margin 0 auto;
-        display: table;
-        font-size: 40px;
-        color: #4F4AA0;
-      }
-      
-      .highlight {
-        background: rgb(132, 222, 255);
-        background: -moz-linear-gradient(left, #84deff 0%, #8d86f7 100%);
-        background: -webkit-linear-gradient(left, #84deff 0%, #8d86f7 100%);
-        background: linear-gradient(to right, #84deff 0%, #8d86f7 100%);
-        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#84deff', endColorstr='#8d86f7', GradientType=1);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      
-      .questions p {
-        margin: 5px;
-        padding: 0;
-        font-size: 30px;
-        font-weight: 400;
-      }
-      
-      .questions {
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
-        text-align: center;
-      }
-      
-      .carousel {
-        background-color: #37346D;
-        padding: 50px 20px 0;
-      }
-      
-      .imgDiv {
-        height: 600px;
-        padding: 0 30px;
-      }
-      
-      .imgDiv {
-        iron-image {
-          --iron-image-width: 600px;
-        }
-      }
-      
-      iron-image {
-        width: 100%;
-        height: 600px;
-      }
-      
-      .imgDiv div {
-        position: absolute;
-        bottom: 0;
-        background: #37346D;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        left: auto;
-        /*margin-left: 40%;*/
-        width: 95%;
-        opacity: 0.8;
-      }
-      
-      #about {
-        padding: 20px;
-      }
-      
-      #whybeats {
-        text-align: center;
-        padding: 20px;
-        margin-bottom: 50px;
-        margin-top: 10px;
-      }
-      
-      #whybeats h2 {
-        font-size: 60px;
-        color: #4f4aa0;
-      }
-      
-      .keyfeatures {
-        @apply(--layout-horizontal);
-        /*@apply(--layout-end-justified);*/
-        /*@apply(--layout-center-justified);*/
-        margin: 0 auto;
-      }
-      
-      .keyfeatures > * {
-        @apply(--layout-flex);
-      }
-      
-      .keyfeatures div {
-        text-align: center;
-        margin: 10px;
-      }
-      
-      .keyfeatures img {
-        height: 100px;
-      }
-      
-      .keyfeatures h3 {
-        font-size: 28px;
-        color: #4f4aa0;
-        text-transform: uppercase;
-        min-height: 100px;
-      }
-      
-      .keyfeatures p {
-        font-size: 20px;
-      }
-      
-      #price {
-        text-align: center;
-        margin-bottom: 100px;
-        line-height: 20px;
-      }
-      
-      #price h2 {
-        font-size: 60px;
-        color: #4f4aa0;
-      }
-      
-      .price {
-        @apply(--layout-horizontal);
-        /*@apply(--layout-end-justified);*/
-        margin: 0 auto;
-        width: 80%;
-      }
-      
-      .price > * {
-        @apply(--layout-flex);
-      }
-      
-      .price div {
-        border: 2px solid #fff;
-        padding: 10px;
-      }
-      
-      .price div.selected {
-        border: 2px solid #6761ce;
-      }
-      
-      .price div:hover {
-        border: 2px solid #4f4aa0;
-        cursor: pointer;
-        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .25), 0 2px 3px 0 rgba(0, 0, 0, 0.25);
-      }
-      
-      .price img {
-        max-width: 100%;
-        max-height: 100%;
-      }
-      
-      .price h1 {
-        font-size: 48px;
-        font-weight: 500;
-        color: #4f4aa0;
-      }
-      
-      .price h3 {
-        font-size: 32px;
-        font-weight: 500;
-      }
-      
-      .price h4 {
-        font-size: 26px;
-        font-weight: 500;
-      }
-      
-      .price p {
-        margin: 2px;
-      }
-      
-      .deal {
-        padding: 2px;
-        width: 100%;
-        padding-top: 20px;
-      }
-      
-      .deal em {
-        padding: 5px 10px;
-        color: white;
-        background: linear-gradient(to right, rgba(132, 222, 255, 1) 0%, rgba(141, 134, 247, 1) 100%);
-        border-radius: 15px;
-        text-align: center;
-        font-style: normal;
-        font-size: 14px;
-      }
-      
-      p.tag {
-        width: 100%;
-        text-align: center;
-      }
-      
-      .tag em {
-        position: relative;
-        top: -15px;
-        background-color: #4F4AA0;
-        font-style: normal;
-        border-radius: 15px;
-        color: white;
-        text-transform: uppercase;
-        padding: 5px 20px;
-      }
-      
-      #price h2 {
-        line-height: 50px;
-      }
-      
-      .price paper-button {
-        padding: 20px;
-        font-size: 24px;
-        font-weight: 500;
-        background-color: #635cc0;
-        --paper-button: {
-          color: white;
-        }
-        ;
-      }
-      
-      t-carousel {
-        --grey-two: #fff;
-      }
-      
-      @media (max-width: 1024px) {
-        .keyfeatures,
-        .price {
-          @apply(--layout-vertical);
-        }
-        .carousel {
-          padding: 0 20px 0;
-        }
-        #whybeats {
-          margin: 0 10%;
-        }
-        #features {
-          padding-top: 20px;
-        }
-        .keyfeatures div {
-          padding-bottom: 30px;
-        }
-        .keyfeatures H3 {
-          min-height: 0;
-        }
-        #price {
-          margin: 10px 10%;
-          padding-top: 0;
-        }
-        .price div {
-          margin: 10px 0;
-          padding: 5px;
-        }
-        .imgMain {
-          width: 80%;
-          padding-top: 50px;
-        }
-        .questions p {
-          margin: 5px;
-          padding: 5px 0;
-          font-size: 26px;
-          font-weight: 300;
-        }
-        .imgDiv {
-          height: 500px;
-        }
-        .imgDiv div {
-          width: 90%;
-        }
-        iron-image {
-          width: 100%;
-          height: 450px;
-        }
-        .logoImg {
-          height: 35px;
-        }
-      }
-      
-      @media (max-width: 640px) {
-        .deal em {
-          font-size: .8em;
-          padding: 5px;
-        }
-        .imgDiv {
-          height: 350px;
-        }
-        .imgDiv div {
-          width: 80%;
-        }
-        iron-image {
-          width: 100%;
-          height: 300px;
-        }
-      }
-    </style>
+	<template>
+		<style include="iron-flex iron-flex-alignment iron-flex-factors">
+			:host {
+				font-family: lato;
+			}
+			
+			app-toolbar {
+				/* Toolbar is the main header, so give it some color */
+				background-color: #6761CE;
+				color: white;
+				--app-toolbar-font-size: 24px;
+			}
+			
+			app-header {
+				background-color: #6761CE;
+			}
+			
+			.logo {
+				padding-top: 10px;
+			}
+			
+			.logo a,
+			.llogo a {
+				text-decoration: none;
+			}
+			
+			.link {
+				@apply(--layout-horizontal);
+				@apply(--layout-center-center);
+			}
+			
+			.link {
+				text-decoration: none;
+				color: #FFF;
+				font-size: 24px;
+				font-weight: lighter;
+			}
+			
+			.tmenu {
+				background-color: #9edee1;
+			}
+			
+			.lmenu {
+				border-top: 1px solid #0D111A;
+			}
+			
+			section {
+				margin-top: -65px;
+				padding-top: 65px;
+			}
+			
+			.sel a {
+				color: #37346D;
+			}
+			
+			.signup {
+				text-align: right;
+				align-self: inherit;
+			}
+			
+			.signup a {
+				text-decoration: none;
+			}
+			
+			.signup paper-button {
+				background-color: white;
+				color: #6761CE;
+				height: 40px;
+				font-size: 15px;
+			}
+			
+			.section {
+				margin-top: -65px;
+				padding-top: 65px;
+			}
+			
+			.menu {
+				align-items: center;
+			}
+			
+			.topmenu {
+				width: 400px;
+				font-size: 20px;
+			}
+			
+			#drawer {
+				--app-drawer-content-container: {
+					background-color: #6761CE;
+				}
+			}
+			
+			.lmenu paper-menu {
+				background-color: #6761CE;
+			}
+			
+			.lmenu paper-item {
+				--paper-item-focused: {
+					background: #6761CE;
+					font-weight: bold;
+				};
+				--paper-item-focused-before: {
+					opacity: 0;
+				};
+			}
+			
+			.llink {
+				text-decoration: none;
+				color: #FFF;
+				border-bottom: 1px solid #4f4aa0;
+			}
+			
+			.llink paper-item {
+				font-size: 24px;
+				font-family: lato;
+				font-weight: 300;
+			}
+			
+			.lsel paper-item {
+				color: #37346D;
+			}
+			
+			#lastBanner {
+				--banner: {
+					height: 850px;
+				}
+			}
+			
+			t-feature.lastFeature {
+				--feature-primary-text: {
+					color: grey;
+					font-family: 'Lato', sans-serif;
+					font-size: 24px;
+				};
+			}
+			
+			header {
+				@apply(--layout-vertical);
+				@apply(--layout-center-center);
+				padding: 0 16px;
+				background-image: url('/images/mainbg.png');
+				color: white;
+				text-align: center;
+			}
+			
+			header > h2 {
+				padding-top: 30px;
+				font-size: 36px;
+				margin: 0;
+			}
+			
+			header > p {
+				font-size: 24px;
+				margin: 5px;
+			}
+			
+			.questions {
+				font-size: 24px;
+				padding: 50px;
+				color: rgba(0, 0, 0, .54);
+			}
+			
+			.questions h2 {
+				margin 0 auto;
+				display: table;
+				font-size: 40px;
+				color: #4F4AA0;
+			}
+			
+			.highlight {
+				background: rgb(132, 222, 255);
+				background: -moz-linear-gradient(left, #84deff 0%, #8d86f7 100%);
+				background: -webkit-linear-gradient(left, #84deff 0%, #8d86f7 100%);
+				background: linear-gradient(to right, #84deff 0%, #8d86f7 100%);
+				filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#84deff', endColorstr='#8d86f7', GradientType=1);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			
+			.questions p {
+				margin: 5px;
+				padding: 0;
+				font-size: 30px;
+				font-weight: 400;
+			}
+			
+			.questions {
+				@apply(--layout-vertical);
+				@apply(--layout-center-center);
+				text-align: center;
+			}
+			
+			.carousel {
+				background-color: #37346D;
+				padding: 50px 20px 0;
+			}
+			
+			.imgDiv {
+				height: 600px;
+				padding: 0 30px;
+			}
+			
+			.imgDiv {
+				iron-image {
+					--iron-image-width: 600px;
+				}
+			}
+			
+			iron-image {
+				width: 100%;
+				height: 600px;
+			}
+			
+			.imgDiv div {
+				position: absolute;
+				bottom: 0;
+				background: #37346D;
+				color: white;
+				padding: 20px;
+				text-align: center;
+				left: auto;
+				width: 95%;
+				opacity: 0.8;
+			}
+			
+			#about {
+				padding: 20px;
+			}
+			
+			#whybeats {
+				text-align: center;
+				padding: 20px;
+				margin-bottom: 50px;
+				margin-top: 10px;
+			}
+			
+			#whybeats h2 {
+				font-size: 60px;
+				color: #4f4aa0;
+			}
+			
+			.keyfeatures {
+				@apply(--layout-horizontal);
+				margin: 0 auto;
+			}
+			
+			.keyfeatures > * {
+				@apply(--layout-flex);
+			}
+			
+			.keyfeatures div {
+				text-align: center;
+				margin: 10px;
+			}
+			
+			.keyfeatures img {
+				height: 100px;
+			}
+			
+			.keyfeatures h3 {
+				font-size: 28px;
+				color: #4f4aa0;
+				text-transform: uppercase;
+				min-height: 100px;
+			}
+			
+			.keyfeatures p {
+				font-size: 20px;
+			}
+			
+			#price {
+				text-align: center;
+				margin-bottom: 100px;
+				line-height: 20px;
+			}
+			
+			#price h2 {
+				font-size: 60px;
+				color: #4f4aa0;
+			}
+			
+			.price {
+				@apply(--layout-horizontal);
+				margin: 0 auto;
+				width: 80%;
+			}
+			
+			.price > * {
+				@apply(--layout-flex);
+			}
+			
+			.price div {
+				border: 2px solid #fff;
+				padding: 10px;
+			}
+			
+			.price div.selected {
+				border: 2px solid #6761ce;
+			}
+			
+			.price div:hover {
+				border: 2px solid #4f4aa0;
+				cursor: pointer;
+				box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .25), 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+			}
+			
+			.price img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+			
+			.price h1 {
+				font-size: 48px;
+				font-weight: 500;
+				color: #4f4aa0;
+			}
+			
+			.price h3 {
+				font-size: 32px;
+				font-weight: 500;
+			}
+			
+			.price h4 {
+				font-size: 26px;
+				font-weight: 500;
+			}
+			
+			.price p {
+				margin: 2px;
+			}
+			
+			.deal {
+				padding: 2px;
+				width: 100%;
+				padding-top: 20px;
+			}
+			
+			.deal em {
+				padding: 5px 10px;
+				color: white;
+				background: linear-gradient(to right, rgba(132, 222, 255, 1) 0%, rgba(141, 134, 247, 1) 100%);
+				border-radius: 15px;
+				text-align: center;
+				font-style: normal;
+				font-size: 14px;
+			}
+			
+			p.tag {
+				width: 100%;
+				text-align: center;
+			}
+			
+			.tag em {
+				position: relative;
+				top: -15px;
+				background-color: #4F4AA0;
+				font-style: normal;
+				border-radius: 15px;
+				color: white;
+				text-transform: uppercase;
+				padding: 5px 20px;
+			}
+			
+			#price h2 {
+				line-height: 50px;
+			}
+			
+			.price paper-button {
+				padding: 20px;
+				font-size: 24px;
+				font-weight: 500;
+				background-color: #635cc0;
+				--paper-button: {
+					color: white;
+				}
+				;
+			}
+			
+			t-carousel {
+				--grey-two: #fff;
+			}
+			
+			.conversion {
+				@apply(--layout-horizontal);
+				margin: 0 auto;
+				width: 80%;
+				padding-bottom: 10px;
+			}
+			
+			#price paper-tabs {
+				width: 200px;
+				border: 1px solid #635CC0;
+			}
+			
+			.cursel {
+				background-color: #635CC0;
+				color: #FFF;
+			}
+			
+			@media (max-width: 1024px) {
+				.keyfeatures,
+				.price {
+					@apply(--layout-vertical);
+				}
+				.carousel {
+					padding: 0 20px 0;
+				}
+				#whybeats {
+					margin: 0 10%;
+				}
+				#features {
+					padding-top: 20px;
+				}
+				.keyfeatures div {
+					padding-bottom: 30px;
+				}
+				.keyfeatures H3 {
+					min-height: 0;
+				}
+				#price {
+					margin: 10px 10%;
+					padding-top: 0;
+				}
+				.price div {
+					margin: 10px 0;
+					padding: 5px;
+				}
+				.imgMain {
+					width: 80%;
+					padding-top: 50px;
+				}
+				.questions p {
+					margin: 5px;
+					padding: 5px 0;
+					font-size: 26px;
+					font-weight: 300;
+				}
+				.imgDiv {
+					height: 500px;
+				}
+				.imgDiv div {
+					width: 90%;
+				}
+				iron-image {
+					width: 100%;
+					height: 450px;
+				}
+				.logoImg {
+					height: 35px;
+				}
+			}
+			
+			@media (max-width: 640px) {
+				.deal em {
+					font-size: .8em;
+					padding: 5px;
+				}
+				.imgDiv {
+					height: 350px;
+				}
+				.imgDiv div {
+					width: 80%;
+				}
+				iron-image {
+					width: 100%;
+					height: 300px;
+				}
+			}
+		</style>
 
-    <app-drawer-layout force-narrow>
-      <app-drawer id="drawer">
-        <app-toolbar class="llogo">
-          <div class="horizontal layout flex">
-            <div>
-              <a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
-            </div>
-          </div>
-        </app-toolbar>
-        <!--side bar menu-->
-        <div class="lmenu">
-          <paper-menu noink selected-class="lsel" selected="{{selected}}">
-            <a href="#challenges" class="llink" tabindex="-1">
-              <paper-item>Challenges</paper-item>
-            </a>
-            <a href="#features" class="llink" tabindex="-1">
-              <paper-item>Features</paper-item>
-            </a>
-            <a href="#price" class="llink" tabindex="-1">
-              <paper-item>Pricing</paper-item>
-            </a>
-            <a href="/story.html" class="llink" tabindex="-1">
-              <paper-item>Story</paper-item>
-            </a>
-          </paper-menu>
-        </div>
-      </app-drawer>
-      <app-header-layout>
-        <app-header fixed class="main-header">
-          <app-toolbar hidden$="{{wideLayout}}">
-            <div class="horizontal layout flex menu">
-              <paper-icon-button class="menu-button1" icon="menu" drawer-toggle></paper-icon-button>
-              <a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
-              <div class="flex-5 signup">
-                <a href="[[signUpUrl]]" target="_blank">
-                  <paper-button id="btnSignup" raised>PREORDER</paper-button>
-                </a>
-              </div>
-            </div>
-          </app-toolbar>
-          <app-toolbar class="tabs-bar" hidden$="{{!wideLayout}}">
-            <div class="horizontal layout flex">
-              <div class="flex-2 llogo">
-                <a href="/index.html"><img src="/images/logo.png" /></a>
-              </div>
-              <div class="flex"></div>
-              <div class="flex-1">
-                <paper-tabs class="topmenu" selected="{{selected}}" no-bar="true" noink="true" flex selected-class="sel">
-                  <paper-tab link>
-                    <a href="#challenges" class="link" tabindex="-1">Challenges</a>
-                  </paper-tab>
-                  <paper-tab link>
-                    <a href="#features" class="link" tabindex="-1">Features</a>
-                  </paper-tab>
-                  <paper-tab link>
-                    <a href="#price" class="link" tabindex="-1">Pricing</a>
-                  </paper-tab>
-                  <paper-tab link>
-                    <a href="/story.html" class="link" tabindex="-1">Story</a>
-                  </paper-tab>
-                </paper-tabs>
-              </div>
-              <div class="flex-1 signup">
-                <a href="[[signUpUrl]]" target="_blank">
-                  <paper-button id="btnSignup" raised>PREORDER</paper-button>
-                </a>
-              </div>
-            </div>
-          </app-toolbar>
-        </app-header>
+		<app-drawer-layout force-narrow>
+			<app-drawer id="drawer">
+				<app-toolbar class="llogo">
+					<div class="horizontal layout flex">
+						<div>
+							<a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
+						</div>
+					</div>
+				</app-toolbar>
+				<!--side bar menu-->
+				<div class="lmenu">
+					<paper-menu noink selected-class="lsel" selected="{{selected}}">
+						<a href="#challenges" class="llink" tabindex="-1">
+							<paper-item>Challenges</paper-item>
+						</a>
+						<a href="#features" class="llink" tabindex="-1">
+							<paper-item>Features</paper-item>
+						</a>
+						<a href="#price" class="llink" tabindex="-1">
+							<paper-item>Pricing</paper-item>
+						</a>
+						<a href="/story.html" class="llink" tabindex="-1">
+							<paper-item>Story</paper-item>
+						</a>
+					</paper-menu>
+				</div>
+			</app-drawer>
+			<app-header-layout>
+				<app-header fixed class="main-header">
+					<app-toolbar hidden$="{{wideLayout}}">
+						<div class="horizontal layout flex menu">
+							<paper-icon-button class="menu-button1" icon="menu" drawer-toggle></paper-icon-button>
+							<a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
+							<div class="flex-5 signup">
+								<a href="[[signUpUrl]]" target="_blank">
+									<paper-button id="btnSignup" raised>PREORDER</paper-button>
+								</a>
+							</div>
+						</div>
+					</app-toolbar>
+					<app-toolbar class="tabs-bar" hidden$="{{!wideLayout}}">
+						<div class="horizontal layout flex">
+							<div class="flex-2 llogo">
+								<a href="/index.html"><img src="/images/logo.png" /></a>
+							</div>
+							<div class="flex"></div>
+							<div class="flex-1">
+								<paper-tabs class="topmenu" selected="{{selected}}" no-bar="true" noink="true" flex selected-class="sel">
+									<paper-tab link>
+										<a href="#challenges" class="link" tabindex="-1">Challenges</a>
+									</paper-tab>
+									<paper-tab link>
+										<a href="#features" class="link" tabindex="-1">Features</a>
+									</paper-tab>
+									<paper-tab link>
+										<a href="#price" class="link" tabindex="-1">Pricing</a>
+									</paper-tab>
+									<paper-tab link>
+										<a href="/story.html" class="link" tabindex="-1">Story</a>
+									</paper-tab>
+								</paper-tabs>
+							</div>
+							<div class="flex-1 signup">
+								<a href="[[signUpUrl]]" target="_blank">
+									<paper-button id="btnSignup" raised>PREORDER</paper-button>
+								</a>
+							</div>
+						</div>
+					</app-toolbar>
+				</app-header>
 
-        <header>
-          <h2>The finest travel quote generation system on the planet. Period.</h2>
-          <p>Fastest quote generation & amendment. Increased revenue. Super easy to use.</p>
-          <img class="imgMain" src="/images/main.png" />
-        </header>
+				<header>
+					<h2>The finest travel quote generation system on the planet. Period.</h2>
+					<p>Fastest quote generation & amendment. Increased revenue. Super easy to use.</p>
+					<img class="imgMain" src="/images/main.png" />
+				</header>
 
-        <section id="challenges">
-          <div class="questions">
-            <p>Have operations staff responding to quotes all day?</p>
-            <p>Tired of time-taking quotation amendments?</p>
-            <p>Too many queries to handle in peak season?</p>
-            <p>Long turnaround times or manual errors costing you money?</p>
-            <p>Working hard to send good looking quotes to agents or travelers?</p>
-            <p>Feel operational costs are too high?</p>
-            <h2 class="highlight">SEE HOW BEATS CAN HELP YOU.</h2>
-          </div>
-        </section>
-        <section id="features" class="carousel">
-          <t-carousel auto-setup-carousel="true" continuous="true">
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/1.jpg" preload></iron-image>
-              <div>Crisp Clear Interface - Clear areas for search criteria, products, and itinerary. The itinerary you see here
-                is exactly how the emails look.
-              </div>
-            </div>
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/2.jpg" preload></iron-image>
-              <div>Powerful Product Listing - Support for deals, category tags, custom product types. Powerful flexible options
-                are built-in without compromising on ease of use.
-              </div>
-            </div>
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/3.jpg" preload></iron-image>
-              <div>Drag and Drop Itinerary Builder - For fastest quote creation and amendments. Reorder products, provide options,
-                add city and day descriptions.
-              </div>
-            </div>
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/4.jpg" preload></iron-image>
-              <div>Custom Discounts on the Fly - Add discounts on individual items or entire packages and see instant updates
-                to overall pricing. Such updates can be shared without resending emails.
-              </div>
-            </div>
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/5.jpg" preload></iron-image>
-              <div>Contextual Notes - Add comments and notes right in the itinerary. Whether they are thoughts about pricing or
-                amendments, capture relevant information where it matters.
-              </div>
-            </div>
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/6.jpg" preload></iron-image>
-              <div>Multiple Export Options - Export itineraries as PDFs, Excel files, or send a link over an email or whatsapp.
-                Invite itinerary amendment suggestions on the links you send.
-              </div>
-            </div>
-            <div class="imgDiv">
-              <iron-image sizing="cover" src="/images/gal/7.jpg" preload></iron-image>
-              <div>Mobile and Tablet Ready - All systems and generated emails work well and look great across every device size
-                and type.
-              </div>
-            </div>
-          </t-carousel>
-        </section>
+				<section id="challenges">
+					<div class="questions">
+						<p>Have operations staff responding to quotes all day?</p>
+						<p>Tired of time-taking quotation amendments?</p>
+						<p>Too many queries to handle in peak season?</p>
+						<p>Long turnaround times or manual errors costing you money?</p>
+						<p>Working hard to send good looking quotes to agents or travelers?</p>
+						<p>Feel operational costs are too high?</p>
+						<h2 class="highlight">SEE HOW BEATS CAN HELP YOU.</h2>
+					</div>
+				</section>
+				<section id="features" class="carousel">
+					<t-carousel auto-setup-carousel="true" continuous="true">
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/1.jpg" preload></iron-image>
+							<div>Crisp Clear Interface - Clear areas for search criteria, products, and itinerary. The itinerary you see here is exactly
+								how the emails look.
+							</div>
+						</div>
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/2.jpg" preload></iron-image>
+							<div>Powerful Product Listing - Support for deals, category tags, custom product types. Powerful flexible options are built-in
+								without compromising on ease of use.
+							</div>
+						</div>
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/3.jpg" preload></iron-image>
+							<div>Drag and Drop Itinerary Builder - For fastest quote creation and amendments. Reorder products, provide options, add
+								city and day descriptions.
+							</div>
+						</div>
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/4.jpg" preload></iron-image>
+							<div>Custom Discounts on the Fly - Add discounts on individual items or entire packages and see instant updates to overall
+								pricing. Such updates can be shared without resending emails.
+							</div>
+						</div>
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/5.jpg" preload></iron-image>
+							<div>Contextual Notes - Add comments and notes right in the itinerary. Whether they are thoughts about pricing or amendments,
+								capture relevant information where it matters.
+							</div>
+						</div>
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/6.jpg" preload></iron-image>
+							<div>Multiple Export Options - Export itineraries as PDFs, Excel files, or send a link over an email or whatsapp. Invite
+								itinerary amendment suggestions on the links you send.
+							</div>
+						</div>
+						<div class="imgDiv">
+							<iron-image sizing="cover" src="/images/gal/7.jpg" preload></iron-image>
+							<div>Mobile and Tablet Ready - All systems and generated emails work well and look great across every device size and type.
+							</div>
+						</div>
+					</t-carousel>
+				</section>
 
-        <section id="whybeats">
-          <h2>Why Beats</h2>
-          <div class="keyfeatures">
-            <div>
-              <img src="/images/reducecost.png" />
-              <h3>Reduce operational cost</h3>
-              <p>When one person becomes as effective as two, your staffing cost reduces, and people are free to work on other
-                activities.
-              </p>
-            </div>
-            <div>
-              <img src="/images/qualityquotes.png" />
-              <h3>Create Quality Quotes</h3>
-              <p>Send quotes and itineraries that look like professionally designed emails and work great with all browsers,
-                mail clients and devices.</p>
-            </div>
-            <div>
-              <img src="/images/eliminateerrors.png" />
-              <h3>Eliminate Manual Errors</h3>
-              <p>Errors while copy pasting can hurt your profit margins. Safeguard yourself against such revenue leakage.</p>
-            </div>
-            <div>
-              <img src="/images/quickresponse.png" />
-              <h3>Quickest Amendment Response</h3>
-              <p>Amendments based on client requests are inevitable. With beats, you can respond to such requests in seconds.</p>
-            </div>
-          </div>
-        </section>
+				<section id="whybeats">
+					<h2>Why Beats</h2>
+					<div class="keyfeatures">
+						<div>
+							<img src="/images/reducecost.png" />
+							<h3>Reduce operational cost</h3>
+							<p>When one person becomes as effective as two, your staffing cost reduces, and people are free to work on other activities.
+							</p>
+						</div>
+						<div>
+							<img src="/images/qualityquotes.png" />
+							<h3>Create Quality Quotes</h3>
+							<p>Send quotes and itineraries that look like professionally designed emails and work great with all browsers, mail clients
+								and devices.</p>
+						</div>
+						<div>
+							<img src="/images/eliminateerrors.png" />
+							<h3>Eliminate Manual Errors</h3>
+							<p>Errors while copy pasting can hurt your profit margins. Safeguard yourself against such revenue leakage.</p>
+						</div>
+						<div>
+							<img src="/images/quickresponse.png" />
+							<h3>Quickest Amendment Response</h3>
+							<p>Amendments based on client requests are inevitable. With beats, you can respond to such requests in seconds.</p>
+						</div>
+					</div>
+				</section>
 
-        <section id="price">
-          <h2>Offer Pricing</h2>
-          <div class="price" on-tap="doSignup">
-            <div class="selected">
-              <img src="/images/individual.png" />
-              <h3>Individuals or teams</h3>
-              <h1>&#8377;999</h1>
-              <p>per month per user</p>
-              <p> (pay annually and get 2 months free)</p>
-              <h4>1 to 20 users</h4>
-            </div>
-            <!--<div class="selected">
-              <p class="tag"><em>most popular</em></p>
-              <img src="/images/team.png" />
-              <h3>Team</h3>
-              <h1>&#8377;999</h1>
-              <p>per month per user</p>
-              <p> (pay annually and get 2 months free)</p>
-              <p class="deal"><em>1 free account with every 4 accounts</em></p>
-              <h4>5 to 20 users</h4>
-            </div>-->
-            <div>
-              <img src="/images/enterprise.png" />
-              <h3>Enterprise</h3>
-              <h1>
-                <paper-button raised>Contact Us</paper-button>
-              </h1>
-              <h4>20+ users</h4>
-            </div>
-          </div>
-        </section>
+				<section id="price">
+					<h2>Offer Pricing</h2>
+					<div class="conversion">
+						<paper-tabs id="currencySelector" selected="{{currencySelected}}" no-bar="true" selected-class="cursel">
+							<paper-tab>INR</paper-tab>
+							<paper-tab>USD</paper-tab>
+						</paper-tabs>
+					</div>
+					<div class="price" on-tap="doSignup">
+						<div class="selected">
+							<img src="/images/individual.png" />
+							<h3>Individuals or teams</h3>
+							<h1 hidden$="[[isUSD(currencySelected)]]">&#8377;999</h1>
+							<h1 hidden$="[[!isUSD(currencySelected)]]">$24.99</h1>
+							<p>per month per user</p>
+							<p> (pay annually and get 2 months free)</p>
+							<h4>1 to 20 users</h4>
+						</div>
+						<div>
+							<img src="/images/enterprise.png" />
+							<h3>Enterprise</h3>
+							<h1>
+								<paper-button raised>Contact Us</paper-button>
+							</h1>
+							<h4>20+ users</h4>
+						</div>
+					</div>
+				</section>
 
-        <b-footer section-links='[
+				<b-footer section-links='[
              {"name":"COMPANY","items":[{"name":"About","url":"/about.html"},{"name":"Story","url":"/story.html"}]},
              {"name":"RESOURCES","items":[{"name":"Sample email","url":"/sample.html","newWindow":true}]},
              {"name":"CONTACT","items":[{"name":"Send message","url":"https://goo.gl/forms/i2ryeDDLGUkDhCFM2","newWindow":true}]}]'
-          copyright-text="&copy; 2016 beats team"></b-footer>
-      </app-header-layout>
-    </app-drawer-layout>
-    <iron-media-query query="min-width: 640px" query-matches="{{wideLayout}}"></iron-media-query>
-  </template>
-  <script>
+					copyright-text="&copy; 2016 beats team"></b-footer>
+			</app-header-layout>
+		</app-drawer-layout>
+		<iron-media-query query="min-width: 640px" query-matches="{{wideLayout}}"></iron-media-query>
+	</template>
+	<script>
 
     Polymer({
       is: 'b-app',
@@ -679,7 +681,14 @@
           type:String,
           value:"https://goo.gl/forms/i2ryeDDLGUkDhCFM2"
         },
-      },      
+        currencySelected:{
+          type:Number,
+          value:0
+        }
+      },  
+      isUSD:function(index){
+         return index==1;
+      },   
       doSignup:function(e){
         console.log(e);
          window.open(this.signUpUrl, '_blank');
