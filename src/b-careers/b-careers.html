@@ -1,7 +1,7 @@
 <link rel="import" href="../elements.html">
 <link rel="import" href="../b-footer/b-footer.html">
 
-<dom-module id="b-story">
+<dom-module id="b-careers">
 
   <template>
     <style include="iron-flex iron-flex-alignment iron-flex-factors">
@@ -445,11 +445,31 @@
       }
       
       #product p {
-        text-align: center;
+        text-align: left;
         padding: 0 10%;
         opacity: 0.5;
+      }
+      
+      #careers {
+        padding: 50px;
         font-size: 24px;
         font-weight: 300;
+        opacity: 0.5;
+        width: 700px;
+        margin: auto;
+      }
+      
+      #careers a {
+        text-decoration: none;
+      }
+      
+      #careers p {
+        text-align: left;
+        padding: 10px;
+      }
+
+      ul li{
+        padding: 10px;
       }
       
       @media (max-width: 1024px) {
@@ -460,24 +480,29 @@
           padding: 10px;
           width: 90%;
         }
+        #careers{
+          width: 80%;
+          margin: auto;
+          padding:10px;
+        }
         .mapText {
           font-size: 0.8em;
           padding: 40px;
         }
-        .logoImg{
-          height:35px;
+        .logoImg {
+          height: 35px;
         }
-
-        #about,#idea,#people,#product{
-          font-size:20px;
+        #careers,
+        #idea,
+        #people,
+        #product {
+          font-size: 20px;
         }
-
-        .info{
-          padding-top:10px;
+        .info {
+          padding-top: 10px;
         }
-
-        #people{
-          height:600px;
+        #people {
+          height: 600px;
         }
       }
     </style>
@@ -503,7 +528,7 @@
             <a href="/index.html#price" class="llink" tabindex="-1">
               <paper-item>Pricing</paper-item>
             </a>
-            <a href="/story.html" class="lsel llink" tabindex="-1">
+            <a href="/story.html" class="llink" tabindex="-1">
               <paper-item>Story</paper-item>
             </a>
           </paper-menu>
@@ -517,7 +542,7 @@
               <a href="/index.html"><img class="logoImg" src="/images/logo.png" /></a>
               <div class="flex-5 signup">
                 <a href="[[signUpUrl]]" target="_blank">
-                  <paper-button id="btnSignup" raised>PREORDER</paper-button>
+                  <paper-button id="btnSignup" raised>SIGN UP</paper-button>
                 </a>
               </div>
             </div>
@@ -539,110 +564,56 @@
                   <paper-tab link>
                     <a href="/index.html#price" class="link" tabindex="-1">Pricing</a>
                   </paper-tab>
-                  <paper-tab link class="sel">
+                  <paper-tab link>
                     <a href="/story.html" class="link" tabindex="-1">Story</a>
                   </paper-tab>
                 </paper-tabs>
               </div>
               <div class="flex-1 signup">
                 <a href="[[signUpUrl]]" target="_blank">
-                  <paper-button id="btnSignup" raised>PREORDER</paper-button>
+                  <paper-button id="btnSignup" raised>SIGN UP</paper-button>
                 </a>
               </div>
             </div>
           </app-toolbar>
         </app-header>
-
-        <section id="about">
-          <div class="container">
-            <div>
-              <img src="/images/intro_graphic.png">
-            </div>
-            <div>
-              <p>A destination management company (DMC) is a professional services company possessing extensive local knowledge,
-                expertise and resources, specialising in the design and implementation of events, activities, tours, transportation
-                and program logistics. A DMC’s work includes liaising with travel agents to build and confirm travel itineraries,
-                working with hotel and activity providers to secure contracted rates, running on-ground logistics and last-mile
-                operational fulfilment for individual and group tours.</p>
-              <p>DMCs may specialise in one or more locations and may have staff ranging from a few tens to hundreds of people,
-                in roles like tour creation and bookings, reservations, contracting, ground services, and accounts.</p>
-            </div>
-          </div>
+        <section id="careers">
+          <p>Careers at Beats</p>
+          <p>The beats is revolutionizing the way small travel businesses operate.</p>
+          <p>
+            There are tens of thousands of small travel agents and tour operators all over India and the world. Most of their business
+            interactions are repetitive and manual with many being time-consuming and error-prone. When you travel, many
+            people work hard in the background to make that experience seamless and delightful. But most of these people
+            currently work offline or are at the fringes of what digital technology today can offer them. Well-designed software
+            can transform the working lives of this travel workforce, and help transcend technology barriers to exponentially
+            enhance their experience. Imagine the world where their daily experience is as delightful as the best trip you’ve
+            had!
+          </p>
+          <p>
+            We enable destination management companies and tour operators to improve efficiency, profits, morale and find more meaning
+            in their work. We are not just creating software, but enabling our clients to trigger better behavior patterns
+            in employees and external stakeholders. Where others see routine, we see scope for revolution.
+          </p>
+          <p>
+            Be part of a small team tackling big challenges. Our interdisciplinary product development team comprises veteran technologists,
+            designers, product thinkers, domain experts, and hopefully you! Join us to radically transform bringing the next
+            billion offline travel transactions online. You will get to experience an early stage funded startup environment
+            within an established travel technology company.
+          </p>
+          <h2>
+            Openings
+          </h2>
+          <ul>
+            <li><a target="__blank" href="https://docs.google.com/document/d/1haNL8KTaeRXbPve4hcwgTSggb6VPhacuOLH3nvg6kyU/edit?usp=sharing">Front End developer</a></li>
+            <li><a target="__blank" href="https://docs.google.com/document/d/1hyHEE0Scgabz5PKVNmbxXYXToqqeGYawaKZFc7eT1Hc/edit?usp=sharing">Full Stack Web developer</a></li>
+          </ul>
         </section>
 
-        <section id="idea">
-          <div class="container">
-            <div class="info">
-              <p>We had some thoughts around leveraging technology to solve operational challenges for DMCs. We wanted to rapidly
-                crystallise and validate these ideas, find out whether a software solution was desirable, and arrive at a
-                prototype that could be developed further by our product team.</p>
-              <p>We started by conducting a couple of unstructured interviews with subject matter experts to understand the
-                domain, key stakeholders and workflows. Based on our understanding, and inspired by lean UX approaches, we
-                formed an initial set of assumptions and hypotheses, which we then prioritised and started validating by
-                engaging with DMCs.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="map">
-          <div>
-            <div>
-              <google-map disable-zoom="true" fit-to-markers api-key="AIzaSyBO0mGEsECssz9TLXWdApFWdGnQrr7unFg">
-                <google-map-marker latitude="18.5204" longitude="73.8567" title="Pune"></google-map-marker>
-                <google-map-marker latitude="19.076" longitude="72.8777" title="Mumbai"></google-map-marker>
-                <google-map-marker latitude="26.2041" longitude="28.0473" title="Africa"></google-map-marker>
-                <google-map-marker latitude="25.2048" longitude="55.2708" title="Dubai"></google-map-marker>
-                <google-map-marker latitude="28.7041" longitude="77.1025" title="Delhi"></google-map-marker>
-                <google-map-marker latitude="3.2028" longitude="73.2207" title="Maldives"></google-map-marker>
-                <google-map-marker latitude="11.7401" longitude="92.6586" title="Andaman and Nicobar Islands"></google-map-marker>
-                <google-map-marker latitude="7.8731" longitude="80.7718" title="Sri Lanka"></google-map-marker>
-                <google-map-marker latitude="39.0742" longitude="21.8243" title="Greece"></google-map-marker>
-                <google-map-marker latitude="1.3521" longitude="103.8198" title="Singapore"></google-map-marker>
-                <google-map-marker latitude="23.0225" longitude="72.5714" title="Ahmedabad"></google-map-marker>
-                <google-map-marker latitude="26.9124" longitude="75.7873" title="Jaipur"></google-map-marker>
-                <google-map-marker latitude="27.5142" longitude="90.4336" title="Bhutan"></google-map-marker>
-                <google-map-marker latitude="26.1445" longitude="91.7362" title="Guwahati"></google-map-marker>
-                <google-map-marker latitude="27.3389" longitude="88.6065" title="Gangtok"></google-map-marker>
-                <google-map-marker latitude="31.1048" longitude="77.1734" title="Himachal Pradesh"></google-map-marker>
-                <google-map-marker latitude="17.385" longitude="78.4867" title="Hyderabad"></google-map-marker>
-                <google-map-marker latitude="22.5726" longitude="88.3639" title="Kolkata"></google-map-marker>
-                <google-map-marker latitude="34.1526" longitude="77.5771" title="Leh"></google-map-marker>
-                <google-map-marker latitude="22.9734" longitude="78.6569" title="Madhya Pradesh"></google-map-marker>
-              </google-map>
-            </div>
-            <div class="mapText">
-              We conducted semi-structured interviews (telephonic and contextual) with DMCs of different sizes, geographies, and at different
-              stages of organisational maturity. We requested for their help in working with us on a regular basis to refine
-              ideas, share artefacts like sample contracts or emails, and basically help co-design the prototype till it
-              reached a level where at least 10 DMCs could agree that it would be useful and worth buying. (We eventually
-              covered 50+ DMCs over 8 weeks)
-            </div>
-          </div>
-        </section>
-
-        <section id="people">
-          <div class="container">
-            <div>
-              <img src="/images/user_graphic.png" />
-              <p>During this engagement with DMCs, as part of the discovery and design process at our end, we identified and
-                charted the types of stakeholders and stages of operation at DMC organisations. We then decided to focus
-                on specific stakeholders and stages. We ran multiple design sprints to arrive at these decisions.</p>
-              <p>Parallely we utilised tools like the SVPG Opportunity Assessment and the Business Model Canvas. We also carried
-                out a basic competitor analysis to gauge what existing product offerings support and lack.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="product">
-          <img width="100%" src="/images/mockup_background.jpg " />
-          <p>This is the resulting prototype we arrived at. Finally, based on several structured interviews
-            with DMCs, we could conclude that we had arrived at problem-solution fit.</p>
-        </section>
-
-                <b-footer section-links='[
+        <b-footer section-links='[
     {"name":"COMPANY","items":[{"name":"About","url":"/about.html"},{"name":"Story","url":"/story.html"},{"name":"Careers","url":"/careers.html"}]},
     {"name":"RESOURCES","items":[{"name":"Sample email","url":"/sample.html","newWindow":true}]},
-    {"name":"CONTACT","items":[{"name":"Send message","url":"https://goo.gl/forms/i2ryeDDLGUkDhCFM2","newWindow":true}]}]' copyright-text="&copy; 2016 beats team"></b-footer>
+    {"name":"CONTACT","items":[{"name":"Send message","url":"https://goo.gl/forms/i2ryeDDLGUkDhCFM2","newWindow":true}]}]'
+          copyright-text="&copy; 2016 beats team"></b-footer>
       </app-header-layout>
     </app-drawer-layout>
     <iron-media-query query="min-width: 640px" query-matches="{{wideLayout}}"></iron-media-query>
@@ -650,7 +621,7 @@
   <script>
 
     Polymer({
-      is: 'b-story',
+      is: 'b-careers',
        properties:{
         signUpUrl:{
           type:String,

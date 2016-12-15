@@ -18,20 +18,65 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>-->
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet"> 
-  <link rel="import" href="src/b-template/b-template.html">
-
+  <link rel="import" href="/bower_components/t-carousel/t-carousel.html">
+  <link rel="import" href="/bower_components/iron-image/iron-image.html">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Lato', sans-serif;
-      background-color: #fff;
-      scroll-behavior: smooth;
-    }
+   	.carousel {
+			background-color: #37346D;
+			padding: 50px 20px 0;
+		}
+		
+		.imgDiv {
+			height: 600px;
+			padding: 0 30px;
+		}
+		
+		.imgDiv {
+			iron-image {
+				--iron-image-width: 600px;
+			}
+		}
+		
+		iron-image {
+			width: 100%;
+			height: 600px;
+		}
+		
+		.imgDiv div {
+			position: absolute;
+			bottom: 0;
+			background: #37346D;
+			color: white;
+			padding: 20px;
+			text-align: center;
+			left: auto;
+			width: 95%;
+			opacity: 0.8;
+		}
+		
+		t-carousel {
+			--grey-two: #fff;
+		}
   </style>
 
 </head>
 
-<body unresolved>
-  <b-template></b-template>
+<body>
+  <section id="features" class="carousel">
+		<t-carousel auto-setup-carousel="true" continuous="true">
+			<div class="imgDiv">
+				<iron-image sizing="cover" src="/images/gal/1.jpg" preload></iron-image>
+				<div>Crisp Clear Interface - Clear areas for search criteria, products, and itinerary. The itinerary you see here is exactly
+					how the emails look.
+				</div>
+			</div>
+			<div class="imgDiv">
+				<iron-image sizing="cover" src="/images/gal/2.jpg" preload></iron-image>
+				<div>Powerful Product Listing - Support for deals, category tags, custom product types. Powerful flexible options are built-in
+					without compromising on ease of use.
+				</div>
+			</div>
+		</t-carousel>
+	</section>
 </body>
 </html>
