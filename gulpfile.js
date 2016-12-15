@@ -33,7 +33,7 @@ gulp.task('image:optimize', function () {
 })
 
 gulp.task('build', ['clean', 'image:optimize'], function () {
-    return gulp.src(['index.html', 'story.html', 'about.html', 'sample.html'])
+    return gulp.src(['index.html', 'story.html', 'about.html', 'sample.html', 'careers.html'])
         .pipe(polybuild({ maximumCrush: true, suffix: '' }))
         .pipe(gulp.dest(BEATS.distDir));
 })
